@@ -45,10 +45,26 @@ public class Main {
     	//input deskripsi
     	deskripsi = in.nextLine();
     	
-    	//input harga dan id
-    	harga = in.nextInt();
-    	id = barangList.size()+1;
+int words = 0;
     	
+    	do {
+    		deskripsi = in.nextLine();
+    		words = deskripsi.split(" ").length;
+    		if(words<2) {
+    			System.out.println("Masukkan Salah! Deskripsi harus terdiri minimal 2 kata. Masukkan kembali. Deskripsi: ");
+    		}
+    	}while(words<2);
+    	
+    	System.out.println("Harga: ");
+    	
+    	do{
+    		harga = in.nextInt();
+    		if(harga%10000 != 0) {
+    			System.out.println("Masukkan Salah! Harga harus kelipatan 10000. Masukkan kembali. Harga: ");
+    		}
+    	}while(harga%10000 != 0);
+    	
+    	id = barangList.size()+1;
     	barangList.add(new Barang(id, nama, kategori, deskripsi, harga));
     }
 
