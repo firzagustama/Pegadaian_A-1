@@ -5,7 +5,7 @@ public class Main {
 
     public static void main(String[] args) {
 	// write your code here
-        List<Barang> barangList = new ArrayList<>();
+        ArrayList<Barang> barangList = new ArrayList<>();
 
         // DATA DUMMY
         barangList.add(new Barang(1, "Firza", "Laptop", "Cepat Sekali", 7000000));
@@ -14,17 +14,17 @@ public class Main {
     }
 
     // TODO buat insert barang gadai disini
-    public static void gadai(List<Barang> barangList) {
+    public static void gadai(ArrayList<Barang> barangList) {
 
     }
 
     // TODO buat tebus disini
-    public static void tebus(List<Barang> barangList) {
+    public static void tebus(ArrayList<Barang> barangList) {
 
     }
 
     // TODO buat tampilkan inventory disini
-    public static void inventory(List<Barang> barangList) {
+    public static void inventory(ArrayList<Barang> barangList) {
 
     }
 }

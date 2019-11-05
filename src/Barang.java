@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+
+import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
+
 class Barang {
     Integer id;
     String nama;
@@ -71,5 +75,9 @@ class Barang {
 
     public void setUtang(Integer utang) {
         this.utang = utang;
+    }
+
+    public void getGadai(ArrayList<Barang> barangList) {
+
     }
 }
