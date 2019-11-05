@@ -44,14 +44,10 @@ public class Main {
     	Scanner input_pembayaran= new Scanner(System.in);
     	int bayartebus= input_pembayaran.nextInt();
     	
-    	for (Barang barang: barangList){
-        	if(barang.getId().equals(idtebus)){
-        		barang.setUtang( barang.getUtang()- bayartebus);
-        		if (barang.getUtang() == 0){
-        			barang.setStatus("lunas");
-        		} 
-        		}
-        	}
+    	// Cek pembayaran
+    	
+    	
+    	//Print Tabel akhir
     	System.out.println("+----+------------+-----------------+--------+-----------------+");
         System.out.format("| %-2s | %-10s | %-15s | %-6s | %-15s |%n", "ID", "Product", "Price", "Status", "Utang");
         System.out.println("+----+------------+-----------------+--------+-----------------+");
