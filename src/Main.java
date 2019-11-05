@@ -3,7 +3,6 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-
 	public static void main(String[] args) {
         List<Barang> barangList = new ArrayList<>();
 
@@ -19,7 +18,7 @@ public class Main {
 			System.out.println("================");
 			System.out.print("Opsi : ");
         	input = scanner.nextInt();
-        	
+
         	switch(input) {
 				case 1:
 					gadai(barangList);
@@ -31,10 +30,10 @@ public class Main {
 					inventory(barangList);
 					break;
 			}
+
     	} while (input != 4);
     }
 
-    // TODO buat insert barang gadai disini
     public static void gadai(List<Barang> barangList) {
     	Scanner in = new Scanner(System.in);
     	
@@ -84,7 +83,6 @@ public class Main {
     	barangList.add(new Barang(id, nama, kategori, deskripsi, harga));
     }
 
-    // TODO buat tebus disini
     public static void tebus(List<Barang> barangList) {
 		if (barangList.size() == 0) {
 			System.out.println("Belum ada barang untuk ditebus!");
@@ -107,18 +105,27 @@ public class Main {
     	int idtebus = input_id.nextInt();
     	
     	System.out.print("Masukkan Nominal Tebus : ");
+
     	Scanner input_pembayaran= new Scanner(System.in);
     	int bayartebus= input_pembayaran.nextInt();
     	
     	// Cek pembayaran
     	for (Barang barang: barangList){
         	if(barang.getId().equals(idtebus)){
-        		barang.setUtang( barang.getUtang()- bayartebus);
+        		
+        		int hitungHutang = barang.getUtang() - bayartebus;
+        		if (hitungHutang  < 0) {
+        			barang.setUtang(0);
+        		} else {
+        			barang.setUtang(hitungHutang);
+        		}
+        		
         		if (barang.getUtang() == 0){
         			barang.setStatus("lunas");
-        		} 
         		}
-        	}
+        	} 
+    	}	
+        	
     	
     	//Print Tabel akhir
     	System.out.println("+----+------------+-----------------+--------+-----------------+");
