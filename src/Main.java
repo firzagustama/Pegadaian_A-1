@@ -3,7 +3,7 @@ import java.util.List;
 
 public class Main {
 
-    static Main main = new Main();
+    static Main mainmenu = new Main();
 	
 	public static void main(String[] args) {
 	// write your code here
@@ -14,7 +14,7 @@ public class Main {
         barangList.add(new Barang(2, "Ruben", "Emas", "Berat Sekali", 10000000));
         barangList.add(new Barang(3, "Onggo", "Motor", "Bensin Habis", 3000000));
         
-        main.inventory(barangList);
+        mainmenu.inventory(barangList);
     }
 
     // TODO buat insert barang gadai disini
