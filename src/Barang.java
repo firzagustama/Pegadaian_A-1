@@ -7,14 +7,14 @@ class Barang {
     String status;
     Integer utang;
 
-    public Barang(Integer id, String nama, String kategori, String deskripsi, Integer harga, String status, Integer utang) {
+    public Barang(Integer id, String nama, String kategori, String deskripsi, Integer harga) {
         this.id = id;
         this.nama = nama;
         this.kategori = kategori;
         this.deskripsi = deskripsi;
         this.harga = harga;
-        this.status = status;
-        this.utang = utang;
+        this.status = "gadai";
+        this.utang = harga;
     }
 
     public Integer getId() {
