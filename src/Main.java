@@ -15,6 +15,7 @@ public class Main {
         
         
     	int input;
+    	Scanner scanner = new Scanner(System.in);
     	do {
     		System.out.println("Pegadaian System");
             System.out.println("================");
@@ -23,21 +24,17 @@ public class Main {
         	System.out.println("3. Tampilkan Inventory");
         	System.out.println("4. Exit");
         	System.out.print("Opsi : ");
-        	Scanner scanner = new Scanner(System.in);
         	input = scanner.nextInt();
         	
         	if (input == 1){
-        	
+        	gadai(barangList);
         	}
         	else if (input == 2){
-        		
+        	tebus(barangList);
         	}
         	else if (input ==3){
-        		
+        	inventory(barangList);	
         	}
-        	else if (input ==4){
-        	}
-        	else {}
     	}while (input !=4);
     }
 
