@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
 
@@ -7,13 +8,12 @@ public class Main {
 	// write your code here
         ArrayList<Barang> barangList = new ArrayList<>();
 
-<<<<<<< Updated upstream
         // DATA DUMMY
         barangList.add(new Barang(1, "Firza", "Laptop", "Cepat Sekali", 7000000));
         barangList.add(new Barang(2, "Ruben", "Emas", "Berat Sekali", 10000000));
         barangList.add(new Barang(3, "Onggo", "Motor", "Bensin Habis", 3000000));
-=======
-		Scanner scanner = new Scanner(System.in);
+		
+        Scanner scanner = new Scanner(System.in);
     	int input;
     	do {
     		System.out.println("Pegadaian System");
@@ -25,13 +25,8 @@ public class Main {
 			System.out.println("================");
 			System.out.print("Opsi : ");
 			
-			try {
-				
-			} catch (Exception e) {
-				System.out.println("Harus berupa angka!");
-			}
+			input = scanner.nextInt();
 			
-        	input = scanner.nextInt();
         	switch(input) {
 				case 1:
 					gadai(barangList);
@@ -43,8 +38,8 @@ public class Main {
 					inventory(barangList);
 					break;
 			}
+
     	} while (input != 4);
->>>>>>> Stashed changes
     }
 
     // TODO buat insert barang gadai disini
@@ -54,9 +49,6 @@ public class Main {
 
     // TODO buat tebus disini
     public static void tebus(ArrayList<Barang> barangList) {
-
-<<<<<<< Updated upstream
-=======
     	// Print table
     	System.out.println("+----+------------+-----------------+--------+-----------------+");
         System.out.format("| %-2s | %-10s | %-15s | %-6s | %-15s |%n", "ID", "Product", "Price", "Status", "Utang");
@@ -69,10 +61,12 @@ public class Main {
     	
         // Input
     	System.out.print("Masukkan ID Barang : ");
+    	
     	Scanner input_id= new Scanner(System.in);
     	int idtebus = input_id.nextInt();
     	
     	System.out.print("Masukkan Nominal Tebus : ");
+    	
     	Scanner input_pembayaran= new Scanner(System.in);
     	int bayartebus= input_pembayaran.nextInt();
     	
@@ -103,7 +97,6 @@ public class Main {
             System.out.format(format, barang.getId(), barang.getKategori(), barang.getHarga(), barang.getStatus(), barang.getUtang());
         }
         System.out.println("+----+------------+-----------------+--------+-----------------+");
->>>>>>> Stashed changes
     }
 
     // TODO buat tampilkan inventory disini
