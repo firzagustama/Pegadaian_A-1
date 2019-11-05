@@ -124,13 +124,8 @@ public class Main {
         			barang.setStatus("lunas");
         		}
         	} 
-    	}
-        		barang.setUtang( barang.getUtang()- bayartebus);
-        		if (barang.getUtang() == 0){
-        			barang.setStatus("lunas");
-        		} 
-        		}
-        	}
+    	}	
+        	
     	
     	//Print Tabel akhir
     	System.out.println("+----+------------+-----------------+--------+-----------------+");
