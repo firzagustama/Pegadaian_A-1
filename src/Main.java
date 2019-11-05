@@ -31,9 +31,9 @@ public class Main {
     public static void inventory(List<Barang> barangList) {
     	//ArrayList<Barang> bl = new ArrayList<>();
     	
-    	/*System.out.println("+----+------------+-----------------+--------------+-----------+");
+    	System.out.println("+----+------------+-----------------+--------------+-----------+");
         System.out.format("| %-2s | %-10s | %-15s | %-12s | %-9s |%n", "ID", "Product", "Name", "Deskripsi", "Price");
-        System.out.println("+----+------------+-----------------+--------------+-----------+");*/
+        System.out.println("+----+------------+-----------------+--------------+-----------+");
 
         String format = "| %-2d | %-10s | %-15s | %-6s | %-9d |%n";
         for(Barang barang : barangList) {
