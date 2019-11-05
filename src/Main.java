@@ -3,12 +3,10 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main {
+	public static void main(String[] args) {
+        List<Barang> barangList = new ArrayList<>();
 
-    public static void main(String[] args) {
-	// write your code here
-        ArrayList<Barang> barangList = new ArrayList<>();
-		
-        Scanner scanner = new Scanner(System.in);
+		Scanner scanner = new Scanner(System.in);
     	int input;
     	do {
     		System.out.println("Pegadaian System");
@@ -19,9 +17,8 @@ public class Main {
         	System.out.println("4. Exit");
 			System.out.println("================");
 			System.out.print("Opsi : ");
+        	input = scanner.nextInt();
 
-			input = scanner.nextInt();
-			
         	switch(input) {
 				case 1:
 					gadai(barangList);
@@ -37,8 +34,7 @@ public class Main {
     	} while (input != 4);
     }
 
-    // TODO buat insert barang gadai disini
-    public static void gadai(ArrayList<Barang> barangList) {
+    public static void gadai(List<Barang> barangList) {
     	Scanner in = new Scanner(System.in);
     	
     	//inisiasi nilai
@@ -87,8 +83,12 @@ public class Main {
     	barangList.add(new Barang(id, nama, kategori, deskripsi, harga));
     }
 
-    // TODO buat tebus disini
-    public static void tebus(ArrayList<Barang> barangList) {
+    public static void tebus(List<Barang> barangList) {
+		if (barangList.size() == 0) {
+			System.out.println("Belum ada barang untuk ditebus!");
+			return;
+		}
+
     	// Print table
     	System.out.println("+----+------------+-----------------+--------+-----------------+");
         System.out.format("| %-2s | %-10s | %-15s | %-6s | %-15s |%n", "ID", "Product", "Price", "Status", "Utang");
@@ -101,12 +101,11 @@ public class Main {
     	
         // Input
     	System.out.print("Masukkan ID Barang : ");
-    	
     	Scanner input_id= new Scanner(System.in);
     	int idtebus = input_id.nextInt();
     	
     	System.out.print("Masukkan Nominal Tebus : ");
-    	
+
     	Scanner input_pembayaran= new Scanner(System.in);
     	int bayartebus= input_pembayaran.nextInt();
     	
@@ -126,6 +125,12 @@ public class Main {
         		}
         	} 
     	}
+        		barang.setUtang( barang.getUtang()- bayartebus);
+        		if (barang.getUtang() == 0){
+        			barang.setStatus("lunas");
+        		} 
+        		}
+        	}
     	
     	//Print Tabel akhir
     	System.out.println("+----+------------+-----------------+--------+-----------------+");
@@ -138,7 +143,7 @@ public class Main {
     }
 
     // TODO buat tampilkan inventory disini
-    public static void inventory(ArrayList<Barang> barangList) {
+    public static void inventory(List<Barang> barangList) {
     	System.out.println("+----+------------+-----------------+--------------+-----------+");
         System.out.format("| %-2s | %-10s | %-15s | %-12s | %-9s |%n", "ID", "Name", "Product", "Description", "Price");
         System.out.println("+----+------------+-----------------+--------------+-----------+");
