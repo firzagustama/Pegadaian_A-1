@@ -45,7 +45,14 @@ public class Main {
     	int bayartebus= input_pembayaran.nextInt();
     	
     	// Cek pembayaran
-    	
+    	for (Barang barang: barangList){
+        	if(barang.getId().equals(idtebus)){
+        		barang.setUtang( barang.getUtang()- bayartebus);
+        		if (barang.getUtang() == 0){
+        			barang.setStatus("lunas");
+        		} 
+        		}
+        	}
     	
     	//Print Tabel akhir
     	System.out.println("+----+------------+-----------------+--------+-----------------+");
