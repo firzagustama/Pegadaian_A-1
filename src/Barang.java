@@ -77,7 +77,4 @@ class Barang {
         this.utang = utang;
     }
 
-    public void getGadai(ArrayList<Barang> barangList) {
-
-    }
 }

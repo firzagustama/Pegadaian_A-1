@@ -7,11 +7,6 @@ public class Main {
     public static void main(String[] args) {
 	// write your code here
         ArrayList<Barang> barangList = new ArrayList<>();
-
-        // DATA DUMMY
-        barangList.add(new Barang(1, "Firza", "Laptop", "Cepat Sekali", 7000000));
-        barangList.add(new Barang(2, "Ruben", "Emas", "Berat Sekali", 10000000));
-        barangList.add(new Barang(3, "Onggo", "Motor", "Bensin Habis", 3000000));
 		
         Scanner scanner = new Scanner(System.in);
     	int input;
@@ -24,7 +19,7 @@ public class Main {
         	System.out.println("4. Exit");
 			System.out.println("================");
 			System.out.print("Opsi : ");
-			
+
 			input = scanner.nextInt();
 			
         	switch(input) {
@@ -44,7 +39,52 @@ public class Main {
 
     // TODO buat insert barang gadai disini
     public static void gadai(ArrayList<Barang> barangList) {
+    	Scanner in = new Scanner(System.in);
+    	
+    	//inisiasi nilai
+    	String nama;
+    	String kategori, deskripsi;
+    	int id, harga, words;
+    	
+    	//input nama
+    	System.out.print("Nama : ");
+    	do {
+    		nama = in.nextLine();
+    		if(nama.length() < 3 || nama.length() > 15) {
+    			System.out.print("Masukkan Salah! Nama harus terdiri dari 3-15 karakter. Masukkan kembali. \nNama : ");
+    		}
+    	} while (nama.length() < 3 || nama.length() > 15);
+    	
+    	//input Kategori
+    	System.out.print("Kategori Produk : ");
+    	do {
+    		kategori = in.nextLine();
+    		if(!kategori.equalsIgnoreCase("Motor") && !kategori.equalsIgnoreCase("Laptop") && !kategori.equalsIgnoreCase("Emas")) {
+    			System.out.print("Masukkan Salah! Produk hanya terdiri dari Motor, Laptop, Emas. Masukkan kembali. \nKategori Produk : ");
+    		}
+    	} while (!kategori.equalsIgnoreCase("Motor") && !kategori.equalsIgnoreCase("Laptop") && !kategori.equalsIgnoreCase("Emas"));
+    	
+    	//input deskripsi
+		System.out.print("Deskripsi : ");
+    	do {
+    		deskripsi = in.nextLine();
+    		words = deskripsi.split(" ").length;
+    		if(words < 2) {
+    			System.out.print("Masukkan Salah! Deskripsi harus terdiri minimal 2 kata. Masukkan kembali. \nDeskripsi : ");
+    		}
+    	}while(words < 2);
 
+    	//input harga
+    	System.out.print("Harga: ");
+    	do{
+    		harga = in.nextInt();
+    		if(harga%10000 != 0) {
+    			System.out.print("Masukkan Salah! Harga harus kelipatan 10000. Masukkan kembali. Harga : ");
+    		}
+    	}while(harga%10000 != 0);
+    	
+    	id = barangList.size()+1;
+    	barangList.add(new Barang(id, nama, kategori, deskripsi, harga));
     }
 
     // TODO buat tebus disini
@@ -84,9 +124,7 @@ public class Main {
         		if (barang.getUtang() == 0){
         			barang.setStatus("lunas");
         		}
-        	} else {
-        		System.out.println("!!!!! Barang Tidak Di Temukan !!!!!");
-        	}
+        	} 
     	}
     	
     	//Print Tabel akhir
@@ -101,6 +139,16 @@ public class Main {
 
     // TODO buat tampilkan inventory disini
     public static void inventory(ArrayList<Barang> barangList) {
+    	System.out.println("+----+------------+-----------------+--------------+-----------+");
+        System.out.format("| %-2s | %-10s | %-15s | %-12s | %-9s |%n", "ID", "Name", "Product", "Description", "Price");
+        System.out.println("+----+------------+-----------------+--------------+-----------+");
 
+        String format = "| %-2d | %-10s | %-15s | %-12s | %-9d |%n";
+        for(Barang barang : barangList) {
+        	if(barang.getStatus().equalsIgnoreCase("gadai")) {
+        		System.out.format(format, barang.getId(),barang.getNama() ,barang.getKategori(),barang.getDeskripsi() ,barang.getHarga());
+        	}
+        }
+        System.out.println("+----+------------+-----------------+--------------+-----------+");
     }
 }
