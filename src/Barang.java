@@ -72,4 +72,6 @@ class Barang {
     public void setUtang(Integer utang) {
         this.utang = utang;
     }
+    
+
 }
