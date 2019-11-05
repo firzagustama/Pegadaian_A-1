@@ -25,31 +25,40 @@ public class Main {
 
     // TODO buat tebus disini
     public static void tebus(List<Barang> barangList) {
+    	// Print table
     	System.out.println("+----+------------+-----------------+--------+-----------------+");
         System.out.format("| %-2s | %-10s | %-15s | %-6s | %-15s |%n", "ID", "Product", "Price", "Status", "Utang");
         System.out.println("+----+------------+-----------------+--------+-----------------+");
-
         String format = "| %-2d | %-10s | %-15d | %-6s | %-15d |%n";
         for(Barang barang : barangList) {
             System.out.format(format, barang.getId(), barang.getKategori(), barang.getHarga(), barang.getStatus(), barang.getUtang());
         }
         System.out.println("+----+------------+-----------------+--------+-----------------+");
     	
-    	System.out.println("Masukkan ID Barang");
+        // Input
+    	System.out.print("Masukkan ID Barang : ");
     	Scanner input_id= new Scanner(System.in);
     	int idtebus = input_id.nextInt();
-      	
-    	for(Barang barang: barangList){
-    		if(barang.getId().equals(idtebus)){
-    			System.out.format(format, barang.getId(), barang.getKategori(), barang.getHarga(), barang.getStatus(), barang.getUtang());
-    		}
-    	}
-    	    	
-    	System.out.println("Masukkan Nominal Tebus");
+    	
+    	System.out.print("Masukkan Nominal Tebus : ");
     	Scanner input_pembayaran= new Scanner(System.in);
     	int bayartebus= input_pembayaran.nextInt();
     	
-    	
+    	for (Barang barang: barangList){
+        	if(barang.getId().equals(idtebus)){
+        		barang.setUtang( barang.getUtang()- bayartebus);
+        		if (barang.getUtang() == 0){
+        			barang.setStatus("lunas");
+        		} 
+        		}
+        	}
+    	System.out.println("+----+------------+-----------------+--------+-----------------+");
+        System.out.format("| %-2s | %-10s | %-15s | %-6s | %-15s |%n", "ID", "Product", "Price", "Status", "Utang");
+        System.out.println("+----+------------+-----------------+--------+-----------------+");
+        for(Barang barang : barangList) {
+            System.out.format(format, barang.getId(), barang.getKategori(), barang.getHarga(), barang.getStatus(), barang.getUtang());
+        }
+        System.out.println("+----+------------+-----------------+--------+-----------------+");
     }
 
     // TODO buat tampilkan inventory disini
