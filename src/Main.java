@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
 
@@ -15,7 +16,23 @@ public class Main {
 
     // TODO buat insert barang gadai disini
     public static void gadai(List<Barang> barangList) {
-
+    	Scanner in = new Scanner(System.in);
+    	String nama;
+    	String kategori, deskripsi;
+    	int id, harga;
+    	System.out.println("Nama: ");
+    	
+    	do {
+    		nama = in.nextLine();
+    		if(nama.length()<3 || nama.length()>15) {
+    			System.out.println("Masukkan Salah! Nama harus terdiri dari 3-15 karakter. Masukkan kembali. \nNama:");
+    		}
+    	}while (nama.length()<3 || nama.length()>15);
+    	kategori = in.nextLine();
+    	deskripsi = in.nextLine();
+    	harga = in.nextInt();
+    	id = barangList.size()+1;
+    	barangList.add(new Barang(id, nama, kategori, deskripsi, harga));
     }
 
     // TODO buat tebus disini
